@@ -1,13 +1,19 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'terkup';
+  radius !: number;
+  height !: number;
+  volume !: number;
+
+  startCalc(){
+    this.volume = Math.round(1.0/3.0*Math.pow(this.radius,2)*Math.PI*this.height*100.0)/100.0;
+  }
 }
